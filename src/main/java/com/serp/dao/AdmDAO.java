@@ -26,7 +26,6 @@ public class AdmDAO implements Serializable {
 	public void save(Administrador adm) throws NegocioException {
 		try {
 			manager.merge(adm);
-
 		} catch (ConstraintViolationException e) {
 			throw new NegocioException("Violação de restrição, possível causa: email já existente.");
 		}
@@ -63,10 +62,15 @@ public class AdmDAO implements Serializable {
 	public List<Administrador> findAll() {
 		return manager.createNamedQuery("Administrador.findAll").getResultList();
 	}
-
+	@Transactional
 	public Administrador findByEmail(String email) {
-		return manager.createNamedQuery("Administrador.findByEmail", Administrador.class)
-				.setParameter("email", email).getSingleResult();
+		try {
+			return manager.createNamedQuery("Administrador.findByEmail", Administrador.class)
+					.setParameter("email", email).getSingleResult();
+		}catch(NoResultException e) {
+			return null;
+		}
+		
 	}
 
 	public List<Administrador> findByName(String nome) {

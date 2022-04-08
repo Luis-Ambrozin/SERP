@@ -6,15 +6,17 @@ body {
 	/* font-family: Arial, Helvetica, sans-serif; */
 	margin: 0px;
 	font-weight: normal;
+	background-color: #d5d5ff;
 }
 
 header {
+	
 	padding: 5px 0px;
 	margin-bottom: 20px;
-	height: 30px;
+	height:rgb(0, 0, 0)x;
 	background-color: #8080ff; /*  barra de menus   */
 	color: #fff;
-	box-shadow: 0px 2px 2px #000000;
+	text-shadow: #000 1px -1px, #000 -1px 1px, #000 1px 1px, #000 -1px -1px;
 }
 
 header>div {
@@ -27,7 +29,7 @@ header>div {
 
 footer {
 	padding: 0px 8px;
-	margin-bottom: 10px
+	margin-bottom: 10px;
 }
 
 h1 {
@@ -79,18 +81,18 @@ h1 {
 	padding: 0px !important;
 }
 
-.graphicImage
-{
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 5px;
-  width: 150px;
+.graphicImage {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 5px;
+	width: 150px;
 }
 
 /* Customiza TabView - fim */
 
 /* Menu sistema inicio */
 .menu-sistema {
+	color: #fff;
 	border: 0px !important;
 	padding: 0px !important;
 	background: none !important;
@@ -99,25 +101,14 @@ h1 {
 .menu-sistema .ui-menu-parent>a .ui-menuitem-text, .menu-sistema>.ui-menu-list>.ui-menuitem>a>.ui-menuitem-text
 	{
 	overflow: visible !important;
-	color: #ffffff!important; /* Texto dos itens de menu   */
-    border-color: #000000; text-shadow:#000 1px -1px, #000 -1px 1px, #000 1px 1px, #000 -1px -1px;
+	color: #ffffff !important; /* Texto dos itens de menu   */
 }
 
-.menu-sistema .ui-icon-triangle-1-s {
-	background: url(#{ resource [ 'imagens:seta-para-baixo.png' ]
-}
-
-)
- 
-
-no-repeat
-
-
-;}
 /* Menu sistema fim */
 .many-checkbox td {
 	border-width: 0px !important;
 	padding: 0px !important;
+	
 }
 
 .many-checkbox td label {

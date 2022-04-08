@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.Column;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.jboss.logging.Logger;
 
@@ -56,12 +57,22 @@ public class LoginBean implements Serializable {
 			FacesContext context = FacesContext.getCurrentInstance();
 			HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
 			if ((Administrador) request.getSession().getAttribute("adm") == null) {
+				request.getSession().setAttribute("adm", adm);
 				log.info("usuario não logado:" + adm.getNome());
 			} else {
 				MessageUtil.alerta("Usuário já está logado");
 			}
 		}
 		return "Home.xhtml";
+	}
+	
+	public void sair() {
+		FacesContext context = FacesContext.getCurrentInstance();
+		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
+		HttpSession session = (request).getSession();
+		session.invalidate();
+		log.info("saindo...");
+
 	}
 
 	public String getEmail() {
@@ -71,7 +82,6 @@ public class LoginBean implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
 	public String getSenha() {
 		return senha;
 	}

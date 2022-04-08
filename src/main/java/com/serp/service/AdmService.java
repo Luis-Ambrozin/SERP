@@ -12,33 +12,33 @@ import com.serp.util.NegocioException;
 public class AdmService implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Inject
 	private AdmDAO admDAO;
 
+	public void save(Administrador adm) throws Exception {
+		if (admDAO.findByEmail(adm.getEmail()) != null) {
+			throw new NegocioException("Email já cadastrado!");
+		}
+		this.admDAO.save(adm);
+	}
 
-	public void save(Administrador adm) throws NegocioException {		
-		this.admDAO.save(adm);		
-	}	
-	
 	public List<Administrador> findAll() {
 		return admDAO.findAll();
 	}
-	
+
 	public void delete(Administrador adm) throws NegocioException {
-		admDAO.delete(adm);		
+		admDAO.delete(adm);
 	}
 
-	
 	public Administrador findByEmail(String email) {
 		return admDAO.findByEmail(email);
-		
+
 	}
-	
-	public List<Administrador> findByName(String nome){
+
+	public List<Administrador> findByName(String nome) {
 		return admDAO.findByName(nome);
 	}
-	
 
 	public List<Administrador> buscarAdministradores() {
 		return admDAO.findAll();

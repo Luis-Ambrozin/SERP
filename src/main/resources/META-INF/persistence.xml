@@ -10,10 +10,10 @@
 		<properties>
 			<!-- -->
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mysql://localhost:3306/serp?autoReconnect=true&amp;useSSL=false&amp;useTimezone=true&amp;serverTimezone=UTC" />
+				value="jdbc:mysql://aa17uq9pdd52zuk.c6wtoa4u4mzw.sa-east-1.rds.amazonaws.com:3306/serp?autoReconnect=true&amp;useSSL=false&amp;useTimezone=true&amp;serverTimezone=UTC" />
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password"
-				value="ifsp" />
+				value="12345678" />
 			<property name="javax.persistence.jdbc.driver"
 				value="com.mysql.cj.jdbc.Driver" />
 

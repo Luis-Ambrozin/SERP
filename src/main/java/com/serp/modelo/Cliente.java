@@ -19,10 +19,8 @@ import javax.persistence.TemporalType;
 import com.serp.modelo.enums.Sexo;
 
 @Entity
-@NamedQueries({ @NamedQuery(name = "Cliente.buscarTodos", query = 
-"select c from Cliente c"),
-		@NamedQuery(name = "Cliente.buscarPorEmail", query = 
-		"select c from Cliente c where c.email = :email") })
+@NamedQueries({ @NamedQuery(name = "Cliente.buscarTodos", query = "select c from Cliente c"),
+		@NamedQuery(name = "Cliente.buscarPorEmail", query = "select c from Cliente c where c.email = :email") })
 public class Cliente {
 
 	private Long codigo;
@@ -30,7 +28,7 @@ public class Cliente {
 	private String email;
 	private String cpf;
 	private Date dataNascimento;
-	private Sexo Sexo;
+	private Sexo sexo;
 	private Date dataCriacao;
 	private Date dataModificacao;
 
@@ -61,6 +59,7 @@ public class Cliente {
 		this.nome = nome;
 	}
 
+	@Column(unique = true)
 	public String getCpf() {
 		return cpf;
 	}
@@ -112,11 +111,11 @@ public class Cliente {
 
 	@Enumerated(EnumType.STRING)
 	public Sexo getSexo() {
-		return Sexo;
+		return sexo;
 	}
 
 	public void setSexo(Sexo sexo) {
-		Sexo = sexo;
+		this.sexo = sexo;
 	}
 
 	/*

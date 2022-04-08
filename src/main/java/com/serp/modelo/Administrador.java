@@ -15,8 +15,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @NamedQueries(value = {
-		@NamedQuery(name = "Administrador.findByEmailSenha", query = "SELECT c FROM Administrador c "
-				+ "WHERE c.email = :email AND c.senha = :senha"),
+		@NamedQuery(name = "Administrador.findByEmailSenha", query = "SELECT a FROM Administrador a "
+				+ "WHERE a.email = :email AND a.senha = :senha"),
 		@NamedQuery(name = "Administrador.findByEmail", query = "select a from Administrador a where a.email = :email"),
 		@NamedQuery(name = "Administrador.findAll", query = "select a from Administrador a") })
 @Entity
@@ -27,6 +27,7 @@ public class Administrador implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
+	@Column(unique = true)
 	private String email;
 	private String senha;
 
@@ -60,7 +61,7 @@ public class Administrador implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
+	
 	public String getEmail() {
 		return email;
 	}

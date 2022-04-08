@@ -27,7 +27,7 @@ public class CadastroAdmBean implements Serializable {
 		try {
 			
 			this.admService.save(adm);
-			MessageUtil.sucesso("Novo administrador salvo com sucesso!");
+			MessageUtil.sucesso("Administrador salvo com sucesso!");
 		} catch (NegocioException e) {
 			MessageUtil.erro(e.getMessage());
 		} catch (Exception ex) {
